@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import FileUpload from '@/components/FileUpload';
 import EmotionCard from '@/components/EmotionCard';
-import ThemeToggle from '@/components/ThemeToggle'; // Add this import
+import ThemeToggle from '@/components/ThemeToggle';
 import { uploadAudioFile, checkApiHealth, PredictionResponse } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
+import AudioPlayer from '@/components/AudioPlayer';
 
 export default function Home() {
   const [results, setResults] = useState<PredictionResponse | null>(null);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null); // 🔥 ADDED
   const { toast } = useToast();
 
   // API Health Check
@@ -40,11 +42,13 @@ export default function Home() {
   });
 
   const handleFileSelect = (file: File) => {
+    setUploadedFile(file); // 🔥 ADDED
     uploadMutation.mutate(file);
   };
 
   const resetResults = () => {
     setResults(null);
+    setUploadedFile(null); // 🔥 ADDED
   };
 
   return (
@@ -52,7 +56,6 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         {/* Header with Theme Toggle */}
         <div className="text-center mb-12 relative">
-          {/* Theme Toggle in top-right corner */}
           <div className="absolute top-0 right-0">
             <ThemeToggle />
           </div>
@@ -84,14 +87,12 @@ export default function Home() {
         <div className="flex flex-col items-center space-y-8">
           {!results ? (
             <>
-              {/* Use Your Existing FileUpload Component */}
               <FileUpload
                 onFileSelect={handleFileSelect}
                 isUploading={uploadMutation.isPending}
-                uploadProgress={50} // You can implement real progress if needed
+                uploadProgress={50}
               />
               
-              {/* Info Section */}
               <div className="text-center max-w-2xl">
                 <p className="text-gray-600 dark:text-gray-300">
                   Supported formats: MP3, WAV, FLAC, M4A, OGG (Max 50MB)
@@ -100,6 +101,14 @@ export default function Home() {
             </>
           ) : (
             <>
+              {/* 🔥 ADDED AUDIO PLAYER */}
+              {uploadedFile && (
+                <AudioPlayer 
+                  audioFile={uploadedFile} 
+                  filename={results.filename}
+                />
+              )}
+
               {/* Results using your existing EmotionCard components */}
               <div className="w-full max-w-6xl">
                 <div className="text-center mb-8">
@@ -123,7 +132,6 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Reset Button */}
               <Button 
                 onClick={resetResults}
                 size="lg"
