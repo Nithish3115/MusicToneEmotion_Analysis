@@ -195,6 +195,3 @@ Train loss (loss/global step):
 Validation loss (loss/epochs):
 ![img](./train_log/val_loss.png)
 
-Best of luck! Should you run into any issues, please feel free to contact me at jeffrey.luo333@gmail.com.
-
-Links to all my other music technology projects (electronic instruments, AI-powered music signal processing software etc.) are at [http://jeffreyluo.com/#mt](http://jeffreyluo.com/#mt).
