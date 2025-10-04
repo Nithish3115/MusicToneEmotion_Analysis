@@ -1,7 +1,6 @@
 # Music Emotion Detection with Human-Interpretable Mid-Level Features
 <img src="images/Arch.png" width="750" height="250">
 
-Links to all my other __`music technology projects`__ (electronic instruments, AI-powered music signal processing software etc.) are at [http://jeffreyluo.com/#mt](http://jeffreyluo.com/#mt).
 
 ## 1. Project context
 Our "Song of Storms" production experience confirmed the criticality of ensuring __`machines’ participation won’t affect`__ the __`authenticity`__ and __`artistic integrity`__ of performances’ __`emotional expression`__. Machines’ ability to detect musicians’ __`dynamic emotions`__ is a crucial step, yet very challenging with the traditional __`static rule-based signal processing`__. The use of AI for detecting emotions in music has emerged as a key focus in academic research. __`AI-based emotion detection`__ typically involves training machine learning models, particularly neural networks, on large datasets of music that have been pre-labeled with various emotional states. The process generally includes these steps:
