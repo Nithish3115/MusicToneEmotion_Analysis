@@ -1,0 +1,141 @@
+React Frontend Development Prompt
+Project Overview
+Create a modern React.js frontend for a Music Emotion Recognition API that analyzes audio files and returns emotional predictions.
+
+API Specifications
+Base URL
+Endpoints
+POST /predict/ - Main prediction endpoint
+
+Input: FormData with audio file
+Output: JSON with emotion scores
+Supported formats: MP3, WAV, FLAC, M4A, OGG
+Max file size: 50MB
+GET /health/ - Health check endpoint
+
+Output: API status and model information
+API Response Format
+Frontend Requirements
+Core Functionality
+File Upload Component
+
+Drag & drop interface
+File browser option
+File validation (format and size)
+Upload progress indicator
+Results Display
+
+8 emotion cards showing scores (1.0 - 7.83 scale)
+Visual emotion indicators with colors
+Processing time and filename display
+Interactive charts/visualizations
+State Management
+
+Loading states during API calls
+Error handling and user feedback
+File upload status tracking
+UI/UX Design Requirements
+Overall Theme
+Modern, music-themed design
+Gradient backgrounds (purple/blue theme)
+Card-based layouts
+Smooth animations and transitions
+Responsive design (mobile-friendly)
+Color Scheme
+Primary: #667eea (purple-blue)
+Secondary: #764ba2 (purple)
+Success: #28a745 (green)
+Warning: #ffc107 (yellow)
+Danger: #dc3545 (red)
+Each emotion should have distinct colors
+Typography
+Modern sans-serif fonts
+Clear hierarchy (headings, body, captions)
+Readable font sizes
+Component Structure
+Technical Requirements
+Dependencies to Include
+axios or fetch for API calls
+react-dropzone for file upload
+framer-motion for animations
+recharts or chart.js for data visualization
+react-icons for icons
+styled-components or CSS modules for styling
+Key Features to Implement
+File Upload Area
+
+Large, prominent drop zone
+Visual feedback on drag over
+File type icons
+Upload progress bar
+Multiple file format support indicators
+Emotion Display
+
+8 emotion cards in a responsive grid
+Each card shows: emotion name, score, scale indicator
+Color-coded emotion categories:
+Valence: Green spectrum
+Energy: Yellow/Orange spectrum
+Tension: Red spectrum
+Anger: Dark red
+Fear: Purple
+Happy: Bright blue/cyan
+Sad: Blue spectrum
+Tender: Pink spectrum
+Interactive Elements
+
+Hover effects on cards
+Click animations
+Smooth loading transitions
+Audio file preview player (optional)
+Data Visualization
+
+Bar chart of emotion scores
+Radar/spider chart showing emotion profile
+Comparative emotion wheel
+Score progression indicators
+Error Handling
+
+Network connection issues
+Invalid file format messages
+File size limit warnings
+API error responses
+Retry functionality
+Additional Features
+
+File history/recent uploads
+Export results functionality
+Share results option
+Audio file preview
+Emotion explanations/tooltips
+Performance Considerations
+Optimize file upload handling
+Implement proper loading states
+Add request cancellation
+Compress images and optimize assets
+Lazy load components where appropriate
+Accessibility Requirements
+ARIA labels for screen readers
+Keyboard navigation support
+Focus management
+Color contrast compliance
+Alt text for images
+Mobile Responsiveness
+Touch-friendly interface
+Responsive grid layouts
+Mobile-optimized file upload
+Swipe gestures for navigation
+Appropriate touch targets
+Expected User Flow
+User lands on main page with upload area
+User drags/drops or selects audio file
+File validation occurs with visual feedback
+Upload starts with progress indicator
+Processing message appears during API call
+Results display with animated emotion cards
+User can view detailed charts and export results
+Browser Support
+Modern browsers (Chrome, Firefox, Safari, Edge)
+ES6+ JavaScript support
+File API support required
+Create a polished, professional music emotion analysis web application that feels intuitive and engaging for users to analyze their audio files.
